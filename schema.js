@@ -2,10 +2,11 @@ const Joi = require("joi");
 
 module.exports.petSchema = Joi.object({
   pet: Joi.object({
-    title: Joi.string().required(),
+    typeAnimal: Joi.string().required(),
+    namePets: Joi.string().required(),
     // image: Joi.string().required(),
     description: Joi.string().required(),
-    location: Joi.string(),
+
   }),
   deleteImages: Joi.array()
 });

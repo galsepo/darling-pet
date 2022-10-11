@@ -12,11 +12,11 @@ ImageSchema.virtual('thumbnail').get(function () {
 });
 
 const PetSchema = new Schema({
-  title: String,
+  typeAnimal: String,
+  namePets: String,
   images: [ImageSchema],
-
   description: String,
-  location: String,
+
   author: {
     type: Schema.Types.ObjectId,
     ref: "User",

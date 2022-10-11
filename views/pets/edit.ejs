@@ -4,28 +4,32 @@
   <h1 class="text-center">Edit pet</h1>
   <div class="col-6 offset-3">
     <form action="/pets/<%=pet._id%>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
-      <div class="mb-3">
-        <label class="form-label" for="title">Title</label>
-        <input class="form-control" type="text" id="title" name="pet[title]" placeholder="title" value="<%=pet.title%>" required />
-        <div class="valid-feedback">Looks good!</div>
-      </div>
-      <div class="mb-3">
-        <label class="form-label" for="location">Location</label>
-        <input class="form-control" type="text" id="location" name="pet[location]" placeholder="location" value="<%=pet.location%>" required />
+
+      <div class="mb-6">
+        <label class="form-label" for="typeAnimal">Type animal</label>
+        <input class="form-control" type="text" id="typeAnimal" name="pet[typeAnimal]" placeholder="type animal" value="<%=pet.typeAnimal%>" required />
         <div class="valid-feedback">Looks good!</div>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-6">
+        <label class="form-label" for="namePets">Name pets</label>
+        <input class="form-control" type="text" id="namePets" name="pet[namePets]" placeholder="name pets" value="<%=pet.namePets%>" required />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-6">
         <label class="form-label" for="description">Description</label>
         <textarea class="form-control" type="text" id="description" name="pet[description]" placeholder="description" required><%=pet.description%></textarea>
         <div class="valid-feedback">Looks good!</div>
       </div>
-      <div class="mb-3">
+
+      <div class="mb-6">
         <label class="form-label" for="image">Add Images</label>
         <input class="form-control" type="file" name="image" id="image" multiple>
         <div class="valid-feedback">Looks good!</div>
       </div>
-      <div class="mb-3">
+
+      <div class="mb-6">
         <% pet.images.forEach(function(img, i){ %>
         <img src="<%= img.thumbnail %>" alt="" class="img-thumbnail">
         <div class="form-check-inline">
@@ -34,11 +38,12 @@
         </div>
         <% }) %>
       </div>
-      <div class="mb-3">
+
+      <div class="mb-6">
         <button class="btn btn-success">Update pet</button>
       </div>
-      <div class="mb-3">
-        <a href="/pets/">Back to pets</a>
+      <div class="mb-6">
+        <a href="/pets/">Back to post</a>
       </div>
     </form>
   </div>

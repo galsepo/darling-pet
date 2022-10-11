@@ -29,7 +29,7 @@ const seedDB = async () => {
     const camp = new Pet({
       author: "6317b8d5f3c8c5cc31c215e9",
       location: `${cities[random1000].city}, ${cities[random1000].state}`,
-      title: `${sample(descriptors)} ${sample(places)}`,
+      typeAnimal: `${sample(descriptors)} ${sample(places)}`,
       image: "https://source.unsplash.com/collection/483251",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi tempora saepe amet, nesciunt molestiae hic totam facilis impedit, dignissimos, maxime quis! Fuga quas facere ullam iusto beatae eveniet odit consequatur?",

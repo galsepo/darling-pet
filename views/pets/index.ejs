@@ -1,0 +1,30 @@
+<% layout('/layouts/boilerplate') %>
+<h1>All Post</h1>
+<div>
+  <a href="/pets/new">Add new post about pets</a>
+</div>
+
+<% for (let pet of pets) { %>
+<div class="card mb-3">
+  <div class="row">
+    <div class="col-md-4">
+      <% if(pet.images.length) { %>
+      <img class="img-fluid" alt="" src="<%=pet.images[0].url%>" />
+      <% } else { %>
+      <img class="img-fluid" alt="" src="https://res.cloudinary.com/da7pzkcgs/image/upload/v1662752681/DarlingPet/ecexq7ymw72htyhijyhm.jpg" />
+      <% } %>
+
+    </div>
+    <div class="col-md-8">
+      <div class="card-body" style="width: 20rem;">
+        <h5 class="card-title"><%= pet.location %></h5>
+        <p class="card-text"><%= pet.description %></p>
+        <p class="card-text">
+          <small class="text-muted"><%= pet.title %></small>
+        </p>
+        <a href="/pets/<%=pet._id%>" class="btn btn-primary">View <%= pet.title %></a>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>

@@ -14,10 +14,10 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require("./models/user");
 const userRoutes = require('./routes/users');
-const campgroundsRoutes = require("./routes/campgrounds");
+const petsRoutes = require("./routes/pets");
 const reviewsRoutes = require("./routes/reviews");
 const helmet = require('helmet');
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/darling-pet';
 const MongoStore = require('connect-mongo');
 
 mongoose
@@ -98,8 +98,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/", userRoutes);
-app.use("/campgrounds", campgroundsRoutes);
-app.use("/campgrounds/:id/reviews", reviewsRoutes);
+app.use("/pets", petsRoutes);
+app.use("/pets/:id/reviews", reviewsRoutes);
 
 app.all("*", (req, res, next) => {
   next(new ExpressError("Page Not Found", 404));

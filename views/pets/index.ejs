@@ -2,12 +2,12 @@
 
 <% for (let pet of pets) { %>
 <div class="card mb-3">
-  <div class="row">
-    <div class="col-md-4">
+  <div class="row" style="margin:0px;">
+    <div class="col-md-4 shadow" style="padding: 0px;">
       <% if(pet.images.length) { %>
-      <img class="img-fluid" alt="" src="<%=pet.images[0].url%>" />
+      <a href=" /pets/<%=pet._id%>"><img class="img-fluid" alt="" src="<%=pet.images[0].url%>" /></a>
       <% } else { %>
-      <img class="img-fluid" alt="" src="https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
+      <a href="/pets/<%=pet._id%>"><img class="img-fluid" alt="" src="https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" /></a>
       <% } %>
 
     </div>
@@ -17,7 +17,7 @@
         <small class="text-muted"><%= pet.typeAnimal %></small>
         <p class="card-text"><%= pet.description %></p>
 
-        <a href="/pets/<%=pet._id%>" class="btn btn-primary">View <%= pet.typeAnimal %></a>
+        <a href="/pets/<%=pet._id%>" class="btn btn-primary">View post</a>
       </div>
     </div>
   </div>

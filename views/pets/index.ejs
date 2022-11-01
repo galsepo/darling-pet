@@ -1,9 +1,9 @@
 <% layout('/layouts/boilerplate') %>
 
 <% for (let pet of pets) { %>
-<div class="card mb-3">
-  <div class="row" style="margin:0px;">
-    <div class="col-md-4 shadow" style="padding: 0px;">
+<div class="card mb-3 margin: 0px;">
+  <div class="row" style="margin:0px; padding: 0px; border: 0px;">
+    <div class="col-md-4 shadow border border-0 " style="padding: 0px; border: 0px; margin: 0px;">
       <% if(pet.images.length) { %>
       <a href=" /pets/<%=pet._id%>"><img class="img-fluid" alt="" src="<%=pet.images[0].url%>" /></a>
       <% } else { %>

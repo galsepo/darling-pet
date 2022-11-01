@@ -4,12 +4,12 @@
 
   <div class="row row-cols-2">
     <div class="col">
-      <div class="mb-3">
+      <div class="mb-3 ">
         <div id="petCarusel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
+          <div class="carousel-inner shadow">
             <% pet.images.forEach((img, i) => { %>
             <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
-              <img src="<%= img.url %>" class="d-block w-100" alt="">
+              <img src="<%= img.url %>" class="d-block w-100 " alt="">
             </div>
             <% }) %>
           </div>
@@ -24,7 +24,7 @@
           </button>
           <% } %>
         </div>
-
+        <br>
         <div class="card-body">
           <h4 class="card-title"><%= pet.namePets%></h4>
           <h5 class="card-title text-muted"><b><%= pet.typeAnimal%></b></h5>
@@ -34,11 +34,11 @@
           <p class="card-title ms-auto text-muted text-capitalize">Submited by <%= pet.author.username %></p>
         </ul>
         <div class="card-body mb-3">
-          <a class="btn btn-success" href="/pets/">All post</a>
+          <a class="btn btn-success shadow" href="/pets/">All post</a>
           <% if(currentUser && pet.author.equals(currentUser._id)) { %>
-          <a href="/pets/<%=pet._id %>/edit" class=" btn btn-info">Edit</a>
+          <a href="/pets/<%=pet._id %>/edit" class=" btn btn-info shadow">Edit</a>
           <form class="d-inline" action="/pets/<%=pet._id%>?_method=DELETE" method="POST">
-            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-danger shadow">Delete</button>
             <% } %>
           </form>
           <div class="text-muted">15 days ago</div>
@@ -51,7 +51,7 @@
       <div class="card-body mb-3">
         <% if(currentUser){  %>
         <h3 card-title>Leave a Comment</h3>
-        <div class="mb-3">
+        <div class="mb-3 ">
           <form class="d-inline validated-form" action="/pets/<%=pet._id%>/reviews" method="POST" novalidate>
             <label class="form-label" for="no-rate">Rating:</label>
             <fieldset class="starability-growRotate">
@@ -69,10 +69,10 @@
             </fieldset>
 
             <label class="form-label" for="body">Review:</label>
-            <textarea class="form-control" name="review[body]" id="body" cols="30" rows="4" required></textarea>
+            <textarea class="form-control shadow" name="review[body]" id="body" cols="30" rows="4" required></textarea>
             <div class="valid-feedback">Looks good!</div>
             <br>
-            <button class="btn btn-primary">Submit</button>
+            <button class="btn btn-primary shadow">Submit</button>
             <% } %>
           </form>
         </div>
@@ -80,7 +80,7 @@
         <h4 class="text-right">Comments</h4>
         <% for(let review of pet.reviews) { %>
         <div class="mb-3 card ">
-          <div class="card-body">
+          <div class="card-body shadow">
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
                 <p class="starability-result" data-rating="<%= review.rating %>"> Rated: <%= review.rating %> stars</p>
@@ -88,7 +88,7 @@
                 <h6 class="card-text"><%= review.body %> </h6>
                 <p class="card-title ms-auto text-muted text-capitalize">By <%= review.author.username %></p>
                 <% if(currentUser && review.author.equals(currentUser._id)) { %>
-                <form action="/pets/<%=pet._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST"><button class="btn btn-sm btn-danger">Delete</button>
+                <form action="/pets/<%=pet._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST"><button class="btn btn-sm btn-danger shadow">Delete</button>
                   <% } %>
               </li>
             </ul>
